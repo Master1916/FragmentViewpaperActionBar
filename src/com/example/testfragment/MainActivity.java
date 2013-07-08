@@ -4,6 +4,7 @@ package com.example.testfragment;
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -12,7 +13,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 public class MainActivity extends FragmentActivity  implements ActionBar.TabListener{
 
@@ -127,7 +130,20 @@ public class MainActivity extends FragmentActivity  implements ActionBar.TabList
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
 			    View view=inflater.inflate(R.layout.fragment_one, container,false);
-		 
+			    
+			    
+			   Button btn=(Button)view.findViewById(R.id.btn);
+			   btn.setText("FragmentDemo");
+			   btn.setOnClickListener(new OnClickListener() {
+					
+					public void onClick(View arg0) {
+						// TODO Auto-generated method stub
+					Intent intent =new Intent(MainActivity.this,FragmentDemo.class);	
+					startActivity(intent);
+					}
+				});
+			    
+			    
 			return view;
 		}
 
